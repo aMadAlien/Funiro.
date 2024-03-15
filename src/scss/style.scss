@@ -1,0 +1,40 @@
+@import 'fonts';
+@import 'icons';
+
+$fontFamily: 'Gilroy';
+$fontSize: 16;
+
+$minWidth: 320px;
+// $maxWidth: 1920px;
+$maxWidth: 1440;
+// $maxWidthContainer: 1170;
+$maxWidthContainer: 1240+30;
+
+$mainColor: #3A3A3A;
+$orangeColor: #e89f71;
+$grauColor: #898989;
+$darkGrayColor: #616161;
+
+body {
+    color: $mainColor;
+
+    &._lock {
+        overflow: hidden;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &._loaded {}
+}
+
+._container {
+    max-width: $maxWidthContainer + px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
