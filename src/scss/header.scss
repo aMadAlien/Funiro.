@@ -42,7 +42,7 @@
     &__main {
         display: flex;
         align-items: center;
-        flex: 0 0 calc(494 / 1440 * 100%);
+        flex: 0 0 calc(494 / 1240 * 100%);
 
         @media (max-width: $md2+px) {
             flex: 1 1 auto;

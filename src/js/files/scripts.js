@@ -29,13 +29,3 @@ window.onload = function () {
         }
     }
 }
-
-// const iconMenu = document.querySelector('.icon-menu');
-// const menuBody = document.querySelector('.menu__body');
-// if (iconMenu) {
-//     iconMenu.addEventListener("click", function (e) {
-//         // document.body.classList.toggle('_lock');//запрещает прокрутку основной страницы при включенном меню + код в css
-//         iconMenu.classList.toggle('_active');
-//         menuBody.classList.toggle('_active');//открывает меню при клике на него
-//     });
-// }
