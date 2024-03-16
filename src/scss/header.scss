@@ -8,6 +8,8 @@
         color: #000;
         font-weight: 700;
         font-size: 24px;
+        position: relative;
+        z-index: 5;
         line-height: calc(29 / 24 * 100%);
     }
 
@@ -26,18 +28,31 @@
         align-items: center;
         padding: 5px 0;
         min-height: 125px;
+        position: relative;
+
+        @media (max-width: $md2+px) {
+            min-height: 80px;
+        }
+
+        @media (max-width: $md3+px) {
+            min-height: 50px;
+        }
     }
 
     &__main {
         display: flex;
         align-items: center;
-        flex: 0 0 calc(494 / 1270 * 100%);
+        flex: 0 0 calc(494 / 1440 * 100%);
+
+        @media (max-width: $md2+px) {
+            flex: 1 1 auto;
+        }
     }
 
     &__menu {}
 
     &__search {
-        padding-right: calc(15px + (32 - 15) * ((100vw - 320px) / (1270 - 320)));
+        padding-right: calc(15px + (32 - 15) * ((100vw - 320px) / (1440 - 320)));
 
         @media (min-width: $md2+px) {
             flex: 1 1 auto;
@@ -51,7 +66,39 @@
 .menu {
     flex: 0 1 420px;
 
-    &__body {}
+    &__body {
+        @media (max-width: $md3+px) {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            top: 0;
+            left: -100%;
+            background-color: #fcf8f3;
+            transition: left .3s ease 0s;
+            padding: 70px 15px 30px 15px;
+
+            &::before {
+                content: '';
+                position: fixed;
+                width: 100%;
+                height: 50px;
+                top: 0;
+                left: -100%;
+                transition: left .3s ease 0s;
+                background-color: #fcf8f3;
+                z-index: 2;
+            }
+
+            &._active {
+                left: 0;
+
+                &::before {
+                    left: 0;
+                }
+            }
+        }
+    }
 
     &__list {
         @media (min-width: $md3+px) {
@@ -111,7 +158,14 @@
                     color: $orangeColor;
                 }
             }
+        }
 
+        @media (max-width: $md3+px) {
+            margin: 0 0 15px 0;
+
+            &:last-child {
+                margin: 0;
+            }
         }
     }
 
@@ -119,12 +173,25 @@
         font-weight: 500;
         color: inherit;
         transition: color .3s ease 0s;
+
+        @media (max-width: $md3+px) {
+            font-size: 24px;
+            font-weight: 600;
+        }
     }
 
     &__arrow {
         margin: 0 0 0 8px;
         transition: all .3s ease 0s;
         font-size: 8px;
+
+        @media (max-width: $md3+px) {
+            font-size: 14px;
+
+            &._active {
+                transform: rotate(-180deg);
+            }
+        }
     }
 
     &__sub-list {
@@ -143,6 +210,11 @@
             left: 0;
             top: 100%;
             position: absolute;
+            z-index: 5;
+        }
+
+        @media (max-width: $md3+px) {
+            margin: 10px -15px 0 -15px;
         }
     }
 
@@ -150,11 +222,25 @@
         &:not(:last-child) {
             margin: 0 0 5px 0;
         }
+
+        @media (max-width: $md3+px) {
+            margin: 0 0 10px 0;
+        }
     }
 
     &__sub-link {
         color: #fff;
         line-height: 120%;
+
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        @media (max-width: $md3+px) {
+            font-size: 18px;
+        }
     }
 }
 
@@ -163,14 +249,45 @@
 .search-form {
     max-width: 473px;
 
-    &_icon {
-        display: none;
+    &._active {
+        .search-form__item {
+            opacity: 1;
+            top: 100%;
+            visibility: visible;
+        }
+
+        .search-form__icon {
+            color: $orangeColor;
+        }
+    }
+
+    &__icon {
+        position: relative;
+        z-index: 5;
+        font-size: 22px;
+        columns: #262f56;
+
+        @media (min-width: $md2+px) {
+            display: none;
+        }
     }
 
     &__item {
         background-color: #fff;
         display: flex;
         align-items: center;
+
+        @media (max-width: $md2+px) {
+            box-shadow: 0 0 5px rgba(212, 209, 205, .3);
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: -100%;
+            z-index: 5;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .3s ease 0s;
+        }
     }
 
     &__btn {
@@ -198,7 +315,7 @@
     grid-auto-flow: column;
     align-items: center;
     gap: 32px;
-    gap: calc(15px + (32 - 15) * ((100vw - 320px) / (1270 - 320)));
+    gap: calc(15px + (32 - 15) * ((100vw - 320px) / (1440 - 320)));
 
     &__item {
 
@@ -217,8 +334,8 @@
         &_user {
             overflow: hidden;
             border-radius: 50%;
-            width: calc(30px + (40 - 30) * ((100vw - 320px) / (1270 - 320)));
-            height: calc(30px + (40 - 30) * ((100vw - 320px) / (1270 - 320)));
+            width: calc(30px + (40 - 30) * ((100vw - 320px) / (1440 - 320)));
+            height: calc(30px + (40 - 30) * ((100vw - 320px) / (1440 - 320)));
         }
     }
 }
@@ -267,4 +384,52 @@
 
 .cart-list {}
 
-.icon-menu {}
+// burger menu
+.icon-menu {
+    display: none;
+
+    @media (max-width: $md3+px) {
+        margin-left: calc(15px + (32 - 15) * ((100vw - 320px) / (1440 - 320)));
+        position: relative;
+        display: block;
+        flex: 0 0 30px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 5;
+
+        span {
+            transition: all .3s ease 0s;
+            top: calc(50% - 1px);
+            left: 0;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #000;
+
+            &:first-child {
+                top: 0;
+            }
+
+            &:last-child {
+                top: auto;
+                bottom: 0;
+            }
+        }
+
+        &._active {
+            span {
+                transform: scale(0);
+
+                &:first-child {
+                    transform: rotate(45deg);
+                    top: calc(50% - 1px);
+                }
+
+                &:last-child {
+                    transform: rotate(-45deg);
+                    bottom: calc(50% - 1px);
+                }
+            }
+        }
+    }
+}

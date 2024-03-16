@@ -18,5 +18,24 @@ window.onload = function () {
                 }
             }
         }
+        if (targetElements.classList.contains('search-form__icon')) {
+            document.querySelector('.search-form').classList.toggle('_active')
+        } else if (!targetElements.closest('.search-form') && document.querySelector('.search-form._active')) {
+            document.querySelector('.search-form').classList.remove('_active')
+        }
+        if (targetElements.classList.contains('icon-menu')) {
+            targetElements.classList.toggle('_active');
+            document.querySelector('.menu__body').classList.toggle('_active');
+        }
     }
 }
+
+// const iconMenu = document.querySelector('.icon-menu');
+// const menuBody = document.querySelector('.menu__body');
+// if (iconMenu) {
+//     iconMenu.addEventListener("click", function (e) {
+//         // document.body.classList.toggle('_lock');//запрещает прокрутку основной страницы при включенном меню + код в css
+//         iconMenu.classList.toggle('_active');
+//         menuBody.classList.toggle('_active');//открывает меню при клике на него
+//     });
+// }
