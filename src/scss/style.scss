@@ -9,6 +9,10 @@ $minWidth: 320px;
 $maxWidth: 1440;
 // $maxWidthContainer: 1170;
 $maxWidthContainer: 1240+30;
+$md1: $maxWidthContainer+12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
 
 $mainColor: #3A3A3A;
 $orangeColor: #e89f71;
@@ -17,6 +21,9 @@ $darkGrayColor: #616161;
 
 body {
     color: $mainColor;
+    font-family: $fontFamily;
+    font-size: 14px;
+    background-color: #f9f1e7;
 
     &._lock {
         overflow: hidden;
@@ -38,3 +45,42 @@ body {
     padding: 0 15px;
     margin: 0 auto;
 }
+
+a {
+    text-decoration: none
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+._ibg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+._ibg img {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+@import 'header';
