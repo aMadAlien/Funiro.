@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
             watchOverflow: true,
             speed: 800,
             loop: true,
-            loopAdditionalSlides: 5,
+            // loopAdditionalSlides: 5,
             preloadImages: false,
             parallax: true,
             pagination: {
