@@ -111,7 +111,12 @@ input {
     flex: 1 1 auto;
 
     &__main-slider {}
+
+    &__advantages {}
+
 }
+
+// ==================================================================================================================
 
 .main-slider {
     background-color: #fcf8f3;
@@ -170,8 +175,6 @@ input {
         }
     }
 }
-
-._swiper {}
 
 .content-main {
     position: relative;
@@ -395,6 +398,8 @@ input {
     }
 }
 
+// ==================================================================================================================
+
 .swiper-pagination-bullets {
     display: flex;
     flex-wrap: wrap;
@@ -471,4 +476,53 @@ input {
     transition-property: transform;
     transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
     box-sizing: content-box;
+}
+
+// ==================================================================================================================
+
+.advantages {
+    padding-top: min(calc(30px + (88 - 30) * ((100vw - 320px) / (1440 - 320))), 88px);
+    padding-bottom: min(calc(30px + (88 - 30) * ((100vw - 320px) / (1440 - 320))), 88px);
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__item {
+        display: inline-grid;
+        padding: 15px 0;
+        grid-template: auto auto / 85px 1fr;
+
+        @media (max-width: $md2+px) {
+            min-width: 280px;
+        }
+
+        @media (max-width: $md3+px) {
+            grid-template: auto auto / auto 1fr;
+        }
+    }
+
+    &__icon {
+        text-align: center;
+        align-self: center;
+        grid-row: span 2;
+
+        @media (max-width: $md3+px) {
+            padding: 0 15px 0 0;
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 150%;
+        margin: 0 0 calc(2px / 18px * 1em) 0;
+    }
+
+    &__text {
+        line-height: 150%;
+        color: $grayColor;
+    }
 }
