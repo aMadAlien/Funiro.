@@ -28,4 +28,17 @@ window.onload = function () {
             document.querySelector('.menu__body').classList.toggle('_active');
         }
     }
+
+    const headerElem = document.querySelector('.header')
+
+    const callback = function (entries, observer) {
+        if (entries[0].isIntersecting) {
+            headerElem.classList.remove('_scroll');
+        } else {
+            headerElem.classList.add('_scroll');
+        }
+    }
+
+    const headerObserver = new IntersectionObserver(callback);
+    headerObserver.observe(headerElem)
 }

@@ -3,6 +3,31 @@
     width: 100%;
     top: 0;
     left: 0;
+    min-height: 40px;
+
+    @media (max-width: $md3+px) {
+        min-height: 5px;
+    }
+
+    &._scroll {
+        .header__wrapper {
+            background-color: rgba(255, 255, 255, .8);
+
+            @media (any-hover: hover) {
+                &:hover {
+                    background-color: rgba(255, 255, 255, .9);
+                }
+            }
+        }
+
+        .header__body {
+            min-height: 50px;
+
+            @media (min-width: $md2+px) {
+                min-height: 70px;
+            }
+        }
+    }
 
     &_logo {
         color: #000;
@@ -14,6 +39,7 @@
     }
 
     &__wrapper {
+        transition: background-color .3s ease 0s;
         position: fixed;
         width: 100%;
         left: 0;
@@ -24,6 +50,7 @@
     &__container {}
 
     &__body {
+        transition: min-height .3s ease 0s;
         display: flex;
         align-items: center;
         padding: 5px 0;
