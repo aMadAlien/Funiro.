@@ -20,7 +20,7 @@ export const isMobile = {
     }
 };
 
-function ibg() {
+export const ibg = () => {
     let ibg = document.querySelectorAll("._ibg");
     for (var i = 0; i < ibg.length; i++) {
         if (ibg[i].querySelector('img')) {

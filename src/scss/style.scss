@@ -565,6 +565,16 @@ input {
     }
 
     &__item {}
+
+    &__footer {
+        padding: 32px 0 0 0;
+        text-align: center;
+    }
+
+    &__more {
+        border: 1px solid $orangeColor;
+        min-width: 245px;
+    }
 }
 
 .item-product {
@@ -660,6 +670,7 @@ input {
             font-weight: normal;
             margin: 0 0 0 16px;
             color: #b0b0b0;
+            text-decoration: line-through;
         }
     }
 
