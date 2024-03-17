@@ -101,6 +101,25 @@ input {
     text-align: center;
     transition: all .3s ease 0s;
     min-height: 48px;
+
+    &_white {
+        background-color: #fff;
+        color: $orangeColor;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $orangeColor;
+                color: #fff;
+            }
+        }
+    }
+}
+
+._title {
+    font-size: min(calc(24px + (40 - 24) * ((100vw - 320px) / (1440 - 320))), 40px);
+    font-weight: 700;
+    line-height: 120%;
+    text-align: center;
 }
 
 @import 'header';
@@ -114,6 +133,7 @@ input {
 
     &__advantages {}
 
+    &__products {}
 }
 
 // ==================================================================================================================
@@ -524,5 +544,182 @@ input {
     &__text {
         line-height: 150%;
         color: $grayColor;
+    }
+}
+
+// ==================================================================================================================
+
+.products {
+    padding-bottom: min(calc(30px + (44 - 30) * ((100vw - 320px) / (1440 - 320))), 44px);
+
+    &__container {}
+
+    &__title {
+        margin: 0 0 calc(32px / 40px * 1em) 0;
+    }
+
+    &__items {
+        display: grid;
+        gap: 32px;
+        grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+    }
+
+    &__item {}
+}
+
+.item-product {
+    background-color: #f4f5f7;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    @media (any-hover: hover) {
+        &:hover {
+            .item-product__actions {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    &__labels {
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        right: min(calc(10px + (24 - 10) * ((100vw - 320px) / (1440 - 320))), 24px);
+        top: min(calc(10px + (24 - 10) * ((100vw - 320px) / (1440 - 320))), 24px);
+    }
+
+    &__label {
+        flex: 0 0 48px;
+        width: 48px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-weight: 500;
+
+        &:not(:last-child) {
+            margin: 0 0 10px 0;
+        }
+
+        &_sale {
+            background-color: #e97171;
+        }
+
+        &_new {
+            background-color: #2ec1ac;
+
+        }
+    }
+
+    &__image {
+        // 301 - height of image, 285 - width of the image
+        padding: 0 0 calc(301px / 285px * 100%) 0;
+    }
+
+    &__body {
+        flex: 1 1 auto;
+        padding: 16px 16px 30px 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__content {
+        flex: 1 1 auto;
+    }
+
+    &__title {
+        font-size: min(calc(20px + (24 - 20) * ((100vw - 320px) / (1440 - 320))), 24px);
+        font-weight: 600;
+        line-height: 120%;
+        margin: 0 0 calc(8px / 24px * 1em) 0;
+    }
+
+    &__text {
+        color: $grayColor;
+        line-height: 150%;
+        margin: 0 0 calc(8px / 24px * 1em) 0;
+    }
+
+    &__prices {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        line-height: 150%;
+    }
+
+    &__price {
+        font-size: min(calc(16px + (20 - 16) * ((100vw - 320px) / (1440 - 320))), 20px);
+        font-weight: 600;
+
+        &_old {
+            font-size: min(calc(14px + (16 - 14) * ((100vw - 320px) / (1440 - 320))), 16px);
+            font-weight: normal;
+            margin: 0 0 0 16px;
+            color: #b0b0b0;
+        }
+    }
+
+    &__actions {
+        @media (any-hover: none) {
+            padding: 15px 0 0 0;
+        }
+
+        @media (any-hover: hover) {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .3s ease 0s;
+            background-color: rgba(58, 58, 58, .74);
+            z-index: 3;
+        }
+    }
+}
+
+.action-product {
+
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__button {
+        flex: 1 1 100%;
+
+        &:not(:last-child) {
+            margin: 0 0 24px 0;
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        color: inherit;
+        font-weight: 600;
+        transition: color .3s ease 0s;
+
+        &::before {
+            margin: 0 10px 0 0;
+            font-size: 16px;
+        }
+
+        @media (any-hover: hover) {
+            color: #fff;
+
+            &:hover {
+                color: $orangeColor;
+            }
+        }
     }
 }
