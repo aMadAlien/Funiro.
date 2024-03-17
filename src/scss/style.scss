@@ -115,6 +115,13 @@ input {
     }
 }
 
+._flyImage._ibg {
+    opacity: 1;
+    position: fixed;
+    z-index: 100;
+    transition: all 1s ease 0s;
+}
+
 ._title {
     font-size: min(calc(24px + (40 - 24) * ((100vw - 320px) / (1440 - 320))), 40px);
     font-weight: 700;
@@ -574,6 +581,11 @@ input {
     &__more {
         border: 1px solid $orangeColor;
         min-width: 245px;
+
+        &._hold {
+            opacity: .2;
+            cursor: default;
+        }
     }
 }
 
@@ -711,6 +723,11 @@ input {
         &:not(:last-child) {
             margin: 0 0 24px 0;
         }
+
+        &._hold {
+            opacity: .2;
+            cursor: default;
+        }
     }
 
     &__link {
@@ -731,6 +748,64 @@ input {
             &:hover {
                 color: $orangeColor;
             }
+        }
+    }
+}
+
+// ==================================================================================================================
+
+.cart-list {
+    overflow: auto;
+    max-height: 200px;
+
+    &__image {
+        flex: 0 0 100px;
+        height: 100px;
+    }
+
+    &__body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 0 0 10px;
+    }
+
+    &__title {
+        color: inherit;
+        font-weight: 600;
+        transition: color .3s ease 0s;
+        margin: 0 0 calc(5px / 16px * 1em) 0;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $orangeColor;
+            }
+        }
+    }
+
+    &__quantity {
+        font-size: 14px;
+        margin: 0 0 calc(5px / 14px * 1em) 0;
+    }
+
+    &__delete {
+        color: red;
+        font-size: 14px;
+
+        @media (any-hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: flex-start;
+
+        &:not(:last-child) {
+            margin: 0 0 15px 0;
         }
     }
 }
