@@ -149,6 +149,8 @@ input {
     &__rooms {}
 
     &__tips {}
+
+    &__furniture {}
 }
 
 // ==================================================================================================================
@@ -1125,6 +1127,115 @@ input {
 
         @media (max-width: $md3+px) {
             display: none;
+        }
+    }
+}
+
+// ==================================================================================================================
+
+.furniture {
+    padding-bottom: min(calc(40px + (85 - 40) * ((100vw - 320px) / (1440 - 320))), 85px);
+
+    &__container {}
+
+    &__label {
+        text-align: center;
+        color: $darkGrayColor;
+        line-height: 150%;
+        padding-bottom: min(calc(16px + (20 - 16) * ((100vw - 320px) / (1440 - 320))), 20px);
+
+        &:not(:last-child) {
+            margin: 0 0 calc(8px / 20px * 1em) 0;
+        }
+    }
+
+    &__title {
+        margin: 0 0 calc(32px / 40px * 1em) 0;
+    }
+
+    &__body {
+        position: relative;
+
+        @media (any-hover: none) {
+            // to scroll in no-cursor devices
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: auto;
+        grid-auto-flow: column;
+        align-items: center;
+        gap: 16px;
+
+        @media (any-hover: hover) {
+            justify-content: center;
+        }
+    }
+
+    &__column {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 0 -8px;
+
+        &:first-child {
+            justify-content: flex-end;
+        }
+    }
+
+    &__row {
+        display: inline-grid;
+        padding: 0 8px;
+        gap: 16px;
+        grid-template-columns: auto;
+        grid-auto-flow: column;
+
+        &:not(:last-child) {
+            margin: 0 0 16px 0;
+        }
+    }
+}
+
+.row-furniture {
+
+    &_left-top {
+        justify-content: end;
+        align-items: end;
+    }
+
+    &_left-bottom {
+        justify-content: end;
+        align-items: start;
+    }
+
+    &_center {
+        display: block;
+    }
+
+    &_right-top {
+        align-items: end;
+    }
+
+    &_right-bottom {
+        align-items: start;
+    }
+
+    &__item {
+        display: inline;
+        @media (any-hover: hover) {
+            img {
+                transition: all .3s ease 0;
+                filter: grayscale(1);
+            }
+
+            &:hover {
+                img {
+                    filter: grayscale(0);
+                }
+            }
         }
     }
 }
