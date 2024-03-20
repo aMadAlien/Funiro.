@@ -141,6 +141,8 @@ input {
     &__advantages {}
 
     &__products {}
+
+    &__rooms {}
 }
 
 // ==================================================================================================================
@@ -366,6 +368,7 @@ input {
 }
 
 .slider-arrow {
+    pointer-events: auto;
     border-radius: 50%;
     height: 48px;
     color: $orangeColor;
@@ -488,7 +491,7 @@ input {
 .swiper-slide {
     flex-shrink: 0;
     width: 100%;
-    height: 100%;
+    // height: 100%;
     position: relative;
     transition-property: transform;
     display: block;
@@ -808,4 +811,193 @@ input {
             margin: 0 0 15px 0;
         }
     }
+}
+
+// ==================================================================================================================
+
+.rooms {
+    background-color: #fcf8f3;
+    padding-top: min(calc(30px + (44 - 30) * ((100vw - 320px) / (1440 - 320))), 44px);
+    padding-bottom: min(calc(30px + (44 - 30) * ((100vw - 320px) / (1440 - 320))), 44px);
+
+    &__container {
+        @media (min-width: $md2+px) {
+            display: flex;
+        }
+    }
+
+    &__body {
+        // desired block width / container width * 100%
+        flex: 0 0 calc(456 / 1240 * 100%);
+        position: relative;
+        z-index: 5;
+        align-self: center;
+
+        @media (min-width: $md2+px) {
+            padding-right: min(calc(30px + (80 - 30) * ((100vw - 320px) / (1440 - 320))), 80px);
+
+        }
+    }
+
+    &__title {
+        text-align: left;
+
+        &:not(:last-child) {
+            margin: 0 0 calc(8px / 40px * 1em) 0;
+        }
+    }
+
+    &__text {
+        line-height: 150%;
+        font-weight: 500;
+
+        &:not(:last-child) {
+            margin: 0 0 24px 0;
+        }
+    }
+
+    &__button {
+        background-color: $orangeColor;
+        color: #fff;
+        min-width: 180px;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #8d6146;
+            }
+        }
+    }
+
+    &__slider {
+        flex: 1 1 auto;
+        min-width: 0;
+        align-self: flex-start;
+    }
+
+}
+
+
+.slider-rooms {
+    position: relative;
+
+    &__body {
+        overflow: visible;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100vw;
+            z-index: 2;
+            background-color: #fcf8f3;
+            transform: translate(-100%, 0);
+        }
+    }
+
+    &__slide {
+        width: 372px;
+        position: relative;
+        overflow: hidden;
+        min-height: min(calc(400px + (585 - 400) * ((100vw - 320px) / (1440 - 320))), 585px);
+
+        &.swiper-slide-active {
+            .slider-rooms__image {
+                height: 100%;
+            }
+        }
+    }
+
+    &__image {
+        transition: height .3s ease 0s;
+        height: 100%;
+
+        @media (min-width: $md3+px) {
+            height: 83%;
+        }
+    }
+
+    &__content {
+        position: absolute;
+        color: inherit;
+        max-width: 240px;
+        left: min(calc(15px + (24 - 15) * ((100vw - 320px) / (1440 - 320))), 24px);
+        bottom: min(calc(15px + (24 - 15) * ((100vw - 320px) / (1440 - 320))), 24px);
+        padding: min(calc(15px + (32 - 15) * ((100vw - 320px) / (1440 - 320))), 32px);
+        background-color: rgba(255, 255, 255, .9);
+
+        // if browser supports 'backdrop-filter' then use it otherwise bg-c
+        @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+            background-color: rgba(255, 255, 255, .72);
+            backdrop-filter: blur(31px);
+        }
+
+        &::before {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: translate(100%, 0);
+            width: 48px;
+            height: 48px;
+            background-color: $orangeColor;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__label {}
+
+    &__title {
+        font-weight: 600;
+        left: min(calc(24px + (28 - 24) * ((100vw - 320px) / (1440 - 320))), 28px);
+    }
+
+    &__arrows {
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        // 24px - 1/2 arrow icon width
+        left: -24px;
+        // 48px - arrow icon width
+        width: calc(100% + 48px);
+        transform: translate(0, -50%);
+        z-index: 5;
+        justify-content: space-between;
+    }
+
+    &__dots {
+        @media (min-width: $md3+px) {
+            position: absolute;
+            bottom: 30px;
+            // 396px - slider width + gap between sliders
+            left: 396px;
+            width: 100%;
+        }
+    }
+}
+
+.label-slider {
+    display: grid;
+    gap: 8px;
+    align-items: center;
+    justify-content: start;
+    grid-template-columns: auto 27px auto;
+    color: $darkGrayColor;
+
+    &:not(:last-child) {
+        margin: 0 0 8px 0;
+    }
+
+    &__number {}
+
+    &__line {
+        height: 1px;
+        background-color: $darkGrayColor;
+    }
+
+    &__text {}
 }
