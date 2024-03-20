@@ -1122,5 +1122,9 @@ input {
             left: -24px;
             width: calc(100% + 48px);
         }
+
+        @media (max-width: $md3+px) {
+            display: none;
+        }
     }
 }
