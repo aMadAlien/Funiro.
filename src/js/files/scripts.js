@@ -42,7 +42,6 @@ window.onload = function () {
             }
             e.preventDefault();
         } else if (!targetElements.closest('.cart-header') && !targetElements.classList.contains('action-product__button')) {
-            console.log("remove");
             document.querySelector('.cart-header').classList.remove('_active');
         }
         if (targetElements.classList.contains('cart-list__delete')) {

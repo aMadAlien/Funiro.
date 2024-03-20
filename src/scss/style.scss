@@ -129,6 +129,10 @@ input {
     text-align: center;
 }
 
+._swiper {
+    overflow: hidden
+}
+
 @import 'header';
 @import 'footer';
 
@@ -143,6 +147,8 @@ input {
     &__products {}
 
     &__rooms {}
+
+    &__tips {}
 }
 
 // ==================================================================================================================
@@ -1022,4 +1028,99 @@ input {
     }
 
     &__text {}
+}
+
+// ==================================================================================================================
+
+.tips {
+    padding-top: min(calc(30px + (44 - 30) * ((100vw - 320px) / (1440 - 320))), 44px);
+    padding-bottom: min(calc(30px + (44 - 30) * ((100vw - 320px) / (1440 - 320))), 44px);
+
+    &__container {}
+
+    &__title {}
+
+    &__slider {}
+}
+
+.slider-tips {
+    position: relative;
+
+    &__body {
+        margin-left: min(calc(-15px + (-32 - -15) * ((100vw - 320px) / (1440 - 320))), -32px);
+        margin-right: min(calc(-15px + (-32 - -15) * ((100vw - 320px) / (1440 - 320))), -32px);
+        padding: min(calc(15px + (32 - 15) * ((100vw - 320px) / (1440 - 320))), 32px);
+    }
+
+    &__slider {
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow .3s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                box-shadow: 0 0 32px rgba(97, 97, 97, .2);
+            }
+        }
+    }
+
+    &__image {
+        padding: 0 0 calc(251px / 291px * 100%) 0;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        flex: 1 1 auto;
+        align-items: flex-start;
+    }
+
+    &__title {
+        flex: 1 1 auto;
+        color: inherit;
+        font-weight: 600;
+        line-height: 120%;
+        font-size: min(calc(18px + (24 - 18) * ((100vw - 320px) / (1440 - 320))), 24px);
+        transition: all .3s ease 0s;
+
+        &:not(:last-child) {
+            margin: 0 0 calc(8px / 24px * 1em) 0;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $orangeColor;
+            }
+        }
+    }
+
+    &__text {
+        color: $grayColor;
+        font-size: 14px;
+        line-height: 150%;
+    }
+
+    &__dots {
+        padding-top: min(calc(0px + (8 - 0) * ((100vw - 320px) / (1440 - 320))), 8px);
+        justify-content: center;
+    }
+
+    &__arrows {
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        // 24px - 1/2 arrow icon width
+        left: 24px;
+        // 48px - arrow icon width
+        width: calc(100% - 48px);
+        transform: translate(0, -50%);
+        z-index: 5;
+        justify-content: space-between;
+
+        @media (min-width: $md1+px) {
+            left: -24px;
+            width: calc(100% + 48px);
+        }
+    }
 }
